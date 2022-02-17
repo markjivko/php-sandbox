@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         },
         start: () => {
-            worker.log('A dockerized collaborative PHP sandbox my Mark Jivko');
+            worker.log('A dockerized collaborative PHP sandbox by Mark Jivko');
 
             // Run
             document.querySelector('[data-role="bar"] button').addEventListener('click', (e) => {
