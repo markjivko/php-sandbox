@@ -2,6 +2,12 @@
 
 This is a tiny PHP sandbox powered by Docker and Ace editor.
 
+<a href="https://github.com/markjivko/php-sandbox/blob/main/assets/preview.gif">
+   <img src="https://github.com/markjivko/php-sandbox/blob/main/assets/preview.gif?raw=true"/>
+</a>
+
+Use it for quick tests, pair programming or even online interviews.
+
 ## How to install
 
 1. First install the **LAMP** stack (Apache, MySQL, PHP)
@@ -40,5 +46,3 @@ Your text files are executed with PHP only inside of a Docker container.
 * the script is killed automatically after 3 seconds
 
 You can safely run this script on your laptop (with correct port forwarding).
-
-<img src="https://github.com/markjivko/php-sandbox/blob/main/assets/preview.gif?raw=true"/>
