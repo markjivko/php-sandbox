@@ -1,11 +1,5 @@
 # PHP Sandbox
 
-<p align="center">
-   <a href="https://github.com/markjivko/php-sandbox/blob/main/assets/preview.gif">
-      <img src="https://repository-images.githubusercontent.com/460528694/c41b4a49-c4de-42a4-a8ea-18a7f80bef0e"/>
-   </a>
-</p>
-
 This is a tiny PHP sandbox powered by Docker and [Ace editor](https://github.com/ajaxorg/ace).
 
 Use it for quick tests, pair programming or even online interviews.
