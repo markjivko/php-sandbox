@@ -53,9 +53,12 @@
                 <div data-role="bar">
                 	<button>&#9654; Run (Ctrl+R)</button>
                 	<span>Running...</span>
+                    <a data-role="repo" target="_blank" href="https://github.com/markjivko/php-sandbox">GitHub</a>
                 </div>
             <?php else:?>
-                <div data-role="empty"><div></div></div>
+                <span data-role="empty">
+                    <a target="_blank" href="https://github.com/markjivko/php-sandbox">PHP Sandbox on GitHub</a>
+                </span>
             <?php endif;?>
         </div>
     </body>

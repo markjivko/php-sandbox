@@ -55,7 +55,7 @@ html, body {
     width: 100%;
     height: 100%;
     position: absolute;
-    background: url(../img/512.png) no-repeat 50% 50% transparent;
+    background: url('../img/512.png') no-repeat 50% 50% transparent;
     background-size: 50vh auto;
     mix-blend-mode: luminosity;
     opacity: 0.05;
@@ -128,11 +128,49 @@ html, body {
     justify-content: center;
     height: 100vh;
 }
-[data-role="empty"] > div {
-    background: url(../img/logo.png) no-repeat 50% 50% transparent;
+[data-role="empty"] > a {
+    display: inline-block;
+    position: relative;
+    background: url('../img/logo.png') no-repeat 50% 50% transparent;
     background-size: 100% auto;
     max-width: 512px;
     max-height: 512px;
     width: 75vw;
     height: 90vh;
+    text-indent: -1000em;
+    color: transparent;
+    overflow: hidden;
+    will-change: transform;
+    transition: transform 50ms linear;
+}
+[data-role="empty"] > a:hover {
+    transform: scale(1.05);
+}
+/* Repo */
+[data-role="repo"] {
+    display: block;
+    float: right;
+    margin-right: 10px;
+    position: relative;
+    text-indent: -1000em;
+    overflow: hidden;
+    color: transparent;
+    width: 35px;
+    height: 35px;
+    top: 7px;
+}
+[data-role="repo"]:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../img/github.png') no-repeat 50% 50% transparent;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    will-change: transform;
+}
+[data-role="repo"]:hover:before {
+    transform: scale(1.1);
 }
