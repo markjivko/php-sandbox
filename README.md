@@ -47,17 +47,22 @@ Your text files are executed with PHP only inside of a Docker container.
 * the script is killed automatically after 3 seconds
 * output is limited to 512KB in length; OOM issues are prevented by forwarding `passthru` output to a custom output buffer handler
 * total code size is limited to 1MB
-* page names contain only lower-case alpha-numeric characters and dashes (`[\w\-]`) with a maximum length of 256 characters
+* page names contain only lower-case alpha-numeric characters and dashes (regex `[\w\-]{1,256}`)
 
-Search functionality is missing by design. However, you could run *echo `ls -l /var/www/html/code`* to view all available pages.
+Search functionality is missing by design. 
+However, you could view all pages by running this PHP script:
+
+```php
+echo `ls -l /var/www/html/code`;
+```
 
 ## Improvements
 
-The current version uses a basic state machine to check for changes and regularly fetch updates. [diff-match-patch](https://github.com/google/diff-match-patch) is used to optimally update code changes for observers.
+The current version uses a basic state machine to check for changes and regularly fetch updates. This model does not prevent race conditions. [diff-match-patch](https://github.com/google/diff-match-patch) is used to optimally update code changes for observers.
 
-Websockets could be used to make the typing experience more fluid for all parties involved.
+Websockets could be used to make the typing experience more fluid for all parties involved, however this approach is sensitive to network issues (lag, connection losses etc.)
 
-The app is intentionally bare-bones. There are no users/roles/databases to worry about; you just manually add text files in `/var/www/html/code/` and set their permissions accordingly. 
+The app is intentionally bare-bones; there are no users/roles/databases to worry about; you just manually add text files in `/var/www/html/code/` and set their permissions accordingly. 
 
 > Simplicity is the ultimate sophistication.
 > 
