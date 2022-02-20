@@ -20,8 +20,8 @@ sudo apt-get install lamp-server
 
 ```
 git clone https://github.com/markjivko/php-sandbox
-sudo cp -R ./src /var/www/html
-sudo chown ${USER}:${USER} /var/www/html
+sudo cp -a php-sandbox/src/. /var/www/html
+sudo chown -R ${USER} /var/www/html
 sudo chmod -R 644 /var/www/html
 ```
 
