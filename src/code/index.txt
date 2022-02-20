@@ -1,4 +1,12 @@
 <?php
 
-// What modules are available?
+/**
+ * PHP Sandbox
+ *
+ * @copyright  (c) 2022 Mark Jivko, https://github.com/markjivko/php-sandbox
+ * @package    php-sandbox
+ * @license    GPL v3+, https://gnu.org/licenses/gpl-3.0.txt
+ */
+
+// What PHP modules are available?
 echo `php -m`;
