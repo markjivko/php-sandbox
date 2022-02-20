@@ -15,8 +15,13 @@ class API {
     const RES_CONTENT = 'content';
     const RES_RESULT  = 'result';
 
-    // Maximum output
-    const MAX_OUTPUT = 4096;
+    // IO limits
+    const MAX_INPUT  = 1048576;
+    const MAX_OUTPUT = 524288;
+
+    // Docker limits
+    const DOCKER_CPUS    = 2;
+    const DOCKER_TIMEOUT = 3;
 
     /**
      * Method name
@@ -54,7 +59,7 @@ class API {
 	        }
 
 	        if (isset($input[self::REQUEST_DATA])) {
-	        	$methodData = $input[self::REQUEST_DATA];
+	        	$methodData = substr($input[self::REQUEST_DATA], 0, self::MAX_INPUT);
 	        }
 
             if (isset($input[self::REQUEST_PAGE])) {
@@ -141,8 +146,13 @@ class API {
         
     	// Prepare the command
     	exec(
-    	    // Run PHP in Docker with 2CPUs quota; read-only volume; timeout after 3s with error code 2
-    	    'docker run --cpus="2" --rm -v /var/www/html/code:/var/www/html/code:ro php:7.4-cli timeout -s 2 3 sh -c "php /var/www/html/code/' . $page . '.txt" 2>&1', 
+    	    // Run PHP inside a read-only Docker container; timeout returns error code 2
+    	    'docker run'
+                . ' --cpus="' . self::DOCKER_CPUS . '"'
+                . ' --rm -v /var/www/html/code:/var/www/html/code:ro'
+                    . ' php:7.4-cli'
+                    . ' timeout -s 2 ' . self::DOCKER_TIMEOUT 
+                    . ' sh -c "php /var/www/html/code/' . $page . '.txt" 2>&1', 
     	    $output, 
     	    $resultCode
         );
