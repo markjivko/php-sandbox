@@ -1,9 +1,8 @@
 /**
  * PHP Sandbox
  * 
- * @copyright  (c) 2022, Mark Jivko
- * @author     Mark Jivko https://markjivko.com
- * @package    markjivko.com
+ * @copyright  (c) 2022 Mark Jivko, https://github.com/markjivko/php-sandbox
+ * @package    php-sandbox
  * @license    GPL v3+, https://gnu.org/licenses/gpl-3.0.txt
  */  
 document.addEventListener("DOMContentLoaded", function() {
@@ -223,4 +222,3 @@ document.addEventListener("DOMContentLoaded", function() {
     // Start the state machine
     worker.start();
 });
-
