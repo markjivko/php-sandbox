@@ -1,0 +1,4 @@
+<?php
+
+// What modules are available?
+echo `php -m`;

@@ -1,4 +1,4 @@
-<?php 
+<?php
     // Trying to read inside the code repo
     if (preg_match('%^\/?code\/[\w\-]+\.txt$%i', $_SERVER['REQUEST_URI'])) {
         header('HTTP/1.0 404 Not Found', true, 404);
@@ -8,11 +8,16 @@
     // Prepare the page name
     $page = strtolower(
         preg_replace(
-            '%[^\w\-]+%i', 
-            '', 
+            '%[^\w\-]+%i',
+            '',
             substr($_SERVER['REQUEST_URI'], 0, 256)
         )
     );
+
+    // Index page
+    if (!strlen($page) && is_file(__DIR__ . '/code/index.txt')) {
+        $page = 'index';
+    }
 
     // Check the file exists
     if (!is_file(__DIR__ . '/code/' . $page . '.txt')) {
@@ -21,7 +26,7 @@
 ?><!doctype html>
 <!--
  * PHP Sandbox
- * 
+ *
  * @copyright  (c) <?php echo date('Y');?> Mark Jivko, https://github.com/markjivko/php-sandbox
  * @package    php-sandbox
  * @license    GPL v3+, https://gnu.org/licenses/gpl-3.0.txt
