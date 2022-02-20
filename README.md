@@ -16,13 +16,12 @@ Use it for quick tests, pair programming or even online interviews.
 sudo apt-get install lamp-server
 ```
 
-2. Clone the repo and copy the contents of **src** to **/var/www/html**
+2. Clone the repo and link **/var/www/html/** to **src**
 
 ```
-git clone https://github.com/markjivko/php-sandbox
-sudo cp -a php-sandbox/src/. /var/www/html
-sudo chown -R ${USER} /var/www/html
-sudo chmod -R 644 /var/www/html
+git clone https://github.com/markjivko/php-sandbox .
+sudo rm -rf /var/www/html
+ln -s $(pwd)/src /var/www/html
 ```
 
 By default Apache runs as `www-data:www-data`, which means our php scripts have read-only access to the file system.
