@@ -39,17 +39,21 @@ There is only 1 page available when you install this script, `two-sum.txt`.
 
 ## Security
 
-The project is read-only for Apache with the exception of text files you selected.
+The project is read-only for Apache with the exception of the text files you selected.
 
 Your text files are executed with PHP only inside of a Docker container.
 
-* the container has read-only access to `/var/ww/html/code` only
+* the Docker container has read-only access to `/var/ww/html/code` only
 * the script is killed automatically after 3 seconds
-* script output is limited to 4096 bytes
+* output is limited to 512KB in length; OOM issues are prevented by forwarding `passthru` output to a custom output buffer handler
+* total code size is limited to 1MB
+* page names contain only lower-case alpha-numeric characters and dashes (`[\w\-]`) with a maximum length of 256 characters
+
+Search functionality is missing by design. However, you could run *echo `ls -l /var/www/html/code`* to view all available pages.
 
 ## Improvements
 
-The current version uses a basic state machine to check for changes and regularly fetch updates.
+The current version uses a basic state machine to check for changes and regularly fetch updates. [diff-match-patch](https://github.com/google/diff-match-patch) is used to optimally update code changes for observers.
 
 Websockets could be used to make the typing experience more fluid for all parties involved.
 
