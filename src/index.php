@@ -24,22 +24,24 @@
         $page = '';
     }
 
-    // Prepare the page title
-    $pageTitle = strlen($page)
-        ? (
-            ': '
-             . implode(
-                ' ',
-                array_map(
-                    'ucfirst',
-                    preg_split(
-						'%[\s\_\-]+%i', 
-						$page
+    // Prepare the page title suffix
+    $titleFragment = (
+		strlen($page)
+			? (
+				': '
+				 . implode(
+					' ',
+					array_map(
+						'ucfirst',
+						preg_split(
+							'%[\s\_\-]+%i', 
+							$page
+						)
 					)
-                )
-            )
-        )
-        : ' by Mark Jivko'
+				)
+			)
+			: ' by Mark Jivko'
+	);
 ?><!doctype html>
 <!--
  * PHP Sandbox
@@ -50,7 +52,7 @@
 -->
 <html lang="en">
     <head>
-        <title>PHP Sandbox<?php echo $pageTitle;?></title>
+        <title>PHP Sandbox<?php echo $titleFragment;?></title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="icon" type="image/ico" href="/favicon.ico">
