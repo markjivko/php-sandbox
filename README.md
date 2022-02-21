@@ -16,7 +16,7 @@ Use it for quick tests, pair programming or even online interviews.
 sudo apt-get install lamp-server
 ```
 
-2. Clone the repo and link **/var/www/html/** to **src**
+2. Clone the repo and link `/var/www/html/` to `src/`
 
 ```
 git clone https://github.com/markjivko/php-sandbox
