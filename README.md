@@ -39,6 +39,18 @@ Page URLs correspond to text files without the ".txt" extension.
 
 3. Last but not least, [install **Docker**](https://docs.docker.com/engine/install/ubuntu/)
 
+## Update
+
+Updating is as simple as running the following commands:
+
+```
+git add -A
+git reset --hard
+git pull
+```
+
+Your work in `/var/www/html/code` is not affected.
+
 ## Security
 
 The project is read-only for Apache with the exception of the text files you selected.
