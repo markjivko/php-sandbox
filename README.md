@@ -48,7 +48,7 @@ Your text files are executed with PHP only inside of a Docker container.
 * the Docker container has read-only access to `/var/ww/html/code` only
 * the script is killed automatically after 3 seconds
 * output is limited to 512KB in length; OOM issues are prevented by forwarding `passthru` output to a custom output buffer handler
-* total code size is limited to 1MB
+* total code size is limited to 512KB
 
 Search functionality is missing by design. 
 However, you could view all pages by running this PHP script:

@@ -20,7 +20,7 @@ class API {
     const RES_RESULT  = 'result';
 
     // IO limits
-    const MAX_INPUT  = 1048576;
+    const MAX_INPUT  = 524288;
     const MAX_OUTPUT = 524288;
 
     // Docker limits
