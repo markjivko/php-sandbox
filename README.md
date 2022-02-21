@@ -19,9 +19,9 @@ sudo apt-get install lamp-server
 2. Clone the repo and link **/var/www/html/** to **src**
 
 ```
-git clone https://github.com/markjivko/php-sandbox .
+git clone https://github.com/markjivko/php-sandbox
 sudo rm -rf /var/www/html
-ln -s $(pwd)/src /var/www/html
+ln -s $(pwd)/php-sandbox/src /var/www/html
 ```
 
 By default Apache runs as `www-data:www-data`, which means our php scripts have read-only access to the file system.
@@ -30,9 +30,12 @@ This is by design:
  * The only way to create new pages is to manually add text files in `/var/www/html/code/`
  * In order to make pages editable, manually change their permission to `666` (via cli or UI)
 
-There is only 1 page available when you install this script, `two-sum.txt`.
- * In order to view it, open a browser at `http://localhost/two-sum/`
- * Make it editable with `chmod 666 /var/www/html/code/two-sum.txt` or directly from your favorite file explorer
+There is only 1 page available when you install this script, `index.txt`.
+ * In order to view it, open a browser at `http://localhost/`
+ * Make it editable with `chmod 666 /var/www/html/code/index.txt` or directly from your favorite file explorer
+ 
+Page names contain only lower-case alpha-numeric characters and dashes (regex `[\w\-]{1,256}`).
+Page URLs correspond to text files without the ".txt" extension.
 
 3. Last but not least, [install **Docker**](https://docs.docker.com/engine/install/ubuntu/)
 
@@ -46,7 +49,6 @@ Your text files are executed with PHP only inside of a Docker container.
 * the script is killed automatically after 3 seconds
 * output is limited to 512KB in length; OOM issues are prevented by forwarding `passthru` output to a custom output buffer handler
 * total code size is limited to 1MB
-* page names contain only lower-case alpha-numeric characters and dashes (regex `[\w\-]{1,256}`)
 
 Search functionality is missing by design. 
 However, you could view all pages by running this PHP script:

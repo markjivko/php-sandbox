@@ -1,7 +1,6 @@
 # Ignore everything
 *
 
-# But not these files...
+# With the exception of these files
 !.gitignore
 !index.txt
-!two-sum.txt
