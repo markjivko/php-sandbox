@@ -34,7 +34,7 @@ There is only 1 page available when you install this script, `index.txt`.
  * In order to view it, open a browser at `http://localhost/`
  * Make it editable with `chmod 666 /var/www/html/code/index.txt` or directly from your favorite file explorer
  
-Page names contain only lower-case alpha-numeric characters and dashes (regex `[\w\-]{1,256}`).
+Page names contain only lower-case alpha-numeric characters and dashes (regex `[\w\-]{1,128}`).
 Page URLs correspond to text files without the ".txt" extension.
 
 3. Last but not least, [install **Docker**](https://docs.docker.com/engine/install/ubuntu/)

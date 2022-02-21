@@ -68,11 +68,11 @@ class API {
 
             if (isset($input[self::REQUEST_PAGE])) {
                 $methodPage = strtolower(
-                    preg_replace(
-                        '%[^\w\-]+%i', 
-                        '', 
-                        substr($input[self::REQUEST_PAGE], 0, 256)
-                    )
+					substr(
+						preg_replace('%[^\w\-]+%i', '', $input[self::REQUEST_PAGE]), 
+						0, 
+						128
+					)
                 );
             }
         }
@@ -106,7 +106,7 @@ class API {
      * Write in the code.txt file
      *
      * @var string $content Content - limited in length to self::MAX_INPUT
-     * @var string $page    Page - limited in length to 256; pre-sanitized
+     * @var string $page    Page - limited in length to 128; pre-sanitized
      * @throws Exception
      */
     public function apiWrite($content = null, $page = null) {
@@ -130,7 +130,7 @@ class API {
      * Execute the code.txt file; limit output size and prevent OOM attack vectors
      *
      * @var string $content (optional) Content - limited in length to self::MAX_INPUT
-     * @var string $page    Page - limited in length to 256; pre-sanitized
+     * @var string $page    Page - limited in length to 128; pre-sanitized
      * @return string Output limited in length to self::MAX_OUTPUT
      * @throws Exception
      */
